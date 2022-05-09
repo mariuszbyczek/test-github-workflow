@@ -1,0 +1,21 @@
+
+name: actions
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check python version
+        uses: actions/checkout@v3
+      - run: |
+          python --version
+      - name: install dependicies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flask
+          pip install pylint
+      - name: check code with pylint
+        run: |
+          pylint $(git ls-files '*.py')
