@@ -18,4 +18,4 @@ jobs:
           pip install pylint
       - name: check code with pylint
         run: |
-          pylint $(git ls-files '*.py' --disable=missing-docstring)
+          pylint $(git ls-files '*.py') --disable=missing-docstring
